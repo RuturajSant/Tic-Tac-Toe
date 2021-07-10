@@ -8,18 +8,25 @@ const Board = () => {
 
     const handleSquareClick = (position)=>{
 
-        if( board[position]){
-            return;
-        }
+        // if( board[position]){
+        //     return;
+        // }
         setBoard((prev)=>{
             return prev.map((square,pos)=>{
-                if(pos === position){
+                if(pos === position && square == null){
+
+                    if(square == null){ 
+                        setIsXNext((prev)=> !prev);
+                        }else{
+                            setIsXNext((prev)=> prev); 
+                        }
+                        
                     return isXNext ? 'X' : 'O';
                 }
                 return square;
             });
-        }); 
-        setIsXNext((prev)=> !prev);
+        });
+        
     };
     const renderSquare = (position)=>{
         return <Square value={board[position]} onClick={()=>{handleSquareClick(position)}} />
