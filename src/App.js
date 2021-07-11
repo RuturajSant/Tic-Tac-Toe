@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import Board from "./components/Board";
 import History from "./components/History";
 import StatusMessage from "./components/StatusMessage";
+import WinCount from "./components/WinCount";
 import { calculateWinner } from "./helpers";
 import "./styles/root.scss";
 
@@ -43,11 +44,14 @@ const App = () => {
   }
   return (
     <div className="app">
-      <h1>TIC TAC TOE</h1>
+      <h1>TIC <span className="text-green">TAC</span> TOE</h1>
       <StatusMessage current={current} winner={winner}/>
       <Board board={current.board} handleSquareClick={handleSquareClick} winningSquares={winningSquares} />
-      <button type="button" onClick={onNewGame}>Start New Game</button>
+      <button className={`btn-reset ${winner?'active':''}`} type="button" onClick={onNewGame}>Start New Game</button>
+      <h2 style={{fontWeight:'normal'}} className="history-title">Current Game History</h2>
       <History history={history} moveTo={moveTo} currentMove={currentMove}/>
+      <WinCount winner={winner}/>
+      <div className="bg-balls"/>
     </div>
   );
 };
