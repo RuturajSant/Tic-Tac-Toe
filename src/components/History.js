@@ -9,7 +9,7 @@ const History = ({ history, moveTo, currentMove }) => {
                   <li key={move}>
                         <button
                          style = {{
-                            fontWeight:move===currentMove ? 'bold':'normal',
+                            fontWeight:move === currentMove ? 'bold':'normal',
                          }}
                          onClick={()=>{
                             moveTo(move);
