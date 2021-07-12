@@ -1,6 +1,6 @@
 import React from 'react'
 
-const History = ({ history, moveTo, currentMove }) => {
+const History = ({ history, moveTo, currentMove,notLastMove}) => {
     return (
         <div className="history-wrapper">
         <ul className="history">
@@ -13,7 +13,7 @@ const History = ({ history, moveTo, currentMove }) => {
                          onClick={()=>{
                             moveTo(move);
                         }} type="button">{move === 0 ? 'Lets Play!!' : `Go to move #${move}`}</button>
-                     </li>
+                     </li>   
                      );
             })}
         </ul>
