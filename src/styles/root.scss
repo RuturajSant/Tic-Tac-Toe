@@ -184,3 +184,24 @@ button {
     }
   }
 }
+
+.win-wrapper{
+  position: absolute;
+  top:50%;
+  right: 20%;
+  transform: translate(50%,-50%);
+  text-align: center;
+  .wins{
+    display: flex;
+    min-width:150px;
+    justify-content: space-between;
+    .win{
+      font-weight: bold;
+    }
+  }
+  span{
+    border: 1px solid #fff;
+    height: auto;
+  }
+
+}

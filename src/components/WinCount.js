@@ -1,36 +1,31 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
 const WinCount = ({winner}) => {
     const [xWin, setXWin] = useState(0);
     const [oWin, setOWin] = useState(0);
 
-    const increment=(()=>{
-        console.log("clicked");
-        setXWin(prev => prev+1);
-        setOWin(prev => prev+1);
-    })
-     if(winner==='X'){
-        console.log("Xwin"); 
-        console.log(`Winner is ${winner}`);
-     }
-     if(winner==='O'){
-        console.log("Owin");  
-     }
-    //  else{
-    //      setOWin(prev=>{
-    //          prev= prev;
-    //      }); 
-    //      setXWin(prev=>{
-    //          prev= prev;
-    //      });
-    //  }
+    useEffect(() => {
+        if(winner==='X'){
+            setXWin(prev => prev+1);
+            console.log(winner);
+        }
+        if(winner==='O'){
+            setOWin(prev => prev+1);
+            console.log(winner);
+        }
+        return () => {
+            console.log("restarting");
+        }
+    }, [winner]);
 
     return (
-        <div>
-          <h2>Wins</h2>
-          <button type="button" onClick={increment}>Click</button>
-          <p>{`X: ${xWin}`}</p>
-          <p>{`O: ${oWin}`}</p>  
+        <div className="win-wrapper">
+          <h2 className="win-title">Wins</h2>
+          <div className="wins">
+            <h3 className="win">{`X: ${xWin}`}</h3>
+            <span></span>
+            <h3 className="win">{`O: ${oWin}`}</h3> 
+          </div> 
         </div>
     )
 }
