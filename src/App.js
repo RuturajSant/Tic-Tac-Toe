@@ -48,12 +48,13 @@ const App = () => {
       <StatusMessage current={current} winner={winner}/>
       <Board board={current.board} handleSquareClick={handleSquareClick} winningSquares={winningSquares} />
       <button className={`btn-reset ${winner?'active':''}`} type="button" onClick={onNewGame}>Start New Game</button>
+      <WinCount winner={winner}/>
       <h2 style={{fontWeight:'normal'}} className="history-title">Current Game History</h2>
       <History history={history} moveTo={moveTo} currentMove={currentMove}/>
-      <WinCount winner={winner}/>
       <div className="bg-balls"/>
     </div>
   );
 };
+
 
 export default App;
